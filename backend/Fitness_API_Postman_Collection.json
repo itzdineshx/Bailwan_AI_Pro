@@ -1,0 +1,535 @@
+{
+  "info": {
+    "name": "Fitness + Diet + AI + E-commerce + Community API",
+    "description": "Complete API collection for the fitness app backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"johndoe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"role\": \"user\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Get Dashboard Summary",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/dashboard",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dashboard"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Progress Analytics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/dashboard/progress?period=30",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dashboard",
+                "progress"
+              ],
+              "query": [
+                {
+                  "key": "period",
+                  "value": "30"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get AI Insights",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/dashboard/insights",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "dashboard",
+                "insights"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Workouts",
+      "item": [
+        {
+          "name": "Get User Workouts",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/workouts",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "workouts"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Workout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Upper Body Workout\",\n  \"description\": \"Focus on chest, shoulders, and arms\",\n  \"exercises\": [\n    {\n      \"name\": \"Push-ups\",\n      \"sets\": 3,\n      \"reps\": 10,\n      \"weight\": 0\n    },\n    {\n      \"name\": \"Shoulder Press\",\n      \"sets\": 3,\n      \"reps\": 12,\n      \"weight\": 20\n    }\n  ],\n  \"duration\": 45,\n  \"caloriesBurned\": 200\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/workouts",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "workouts"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Workout Library",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/workouts/library",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "workouts",
+                "library"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Diet & Nutrition",
+      "item": [
+        {
+          "name": "Log Meal",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Breakfast - Oatmeal\",\n  \"type\": \"breakfast\",\n  \"foods\": [\n    {\n      \"name\": \"Oats\",\n      \"quantity\": 50,\n      \"unit\": \"g\",\n      \"calories\": 150,\n      \"protein\": 5,\n      \"carbs\": 25,\n      \"fat\": 3\n    },\n    {\n      \"name\": \"Banana\",\n      \"quantity\": 1,\n      \"unit\": \"medium\",\n      \"calories\": 105,\n      \"protein\": 1,\n      \"carbs\": 27,\n      \"fat\": 0\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/diet/log",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "diet",
+                "log"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Grocery List",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/diet/grocery-list",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "diet",
+                "grocery-list"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "AI Coaching",
+      "item": [
+        {
+          "name": "Chat with AI",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"How can I improve my workout routine?\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/ai/chat",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ai",
+                "chat"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get AI Suggestions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/ai/suggestions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "ai",
+                "suggestions"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Community",
+      "item": [
+        {
+          "name": "Get Community Feed",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/community/feed",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "community",
+                "feed"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Post",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"Just finished an amazing workout! 💪\",\n  \"images\": []\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/community/post",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "community",
+                "post"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "E-commerce",
+      "item": [
+        {
+          "name": "Get Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/shop/products",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "shop",
+                "products"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Cart",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/shop/cart",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "shop",
+                "cart"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "Log Weight",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"weight\": 70.5\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/analytics/weight",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "analytics",
+                "weight"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Streaks",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{auth_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/analytics/streaks",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "analytics",
+                "streaks"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
