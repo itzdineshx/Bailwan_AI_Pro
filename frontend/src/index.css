@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light Mode - Beige & Golden */
+    --background: 40 30% 94%;
+    --foreground: 30 15% 15%;
+
+    --card: 40 25% 96%;
+    --card-foreground: 30 15% 15%;
+
+    --popover: 40 25% 96%;
+    --popover-foreground: 30 15% 15%;
+
+    --primary: 45 90% 50%;
+    --primary-foreground: 30 15% 15%;
+
+    --secondary: 40 40% 85%;
+    --secondary-foreground: 30 15% 15%;
+
+    --muted: 40 20% 88%;
+    --muted-foreground: 30 10% 40%;
+
+    --accent: 45 85% 55%;
+    --accent-foreground: 30 15% 15%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 20% 82%;
+    --input: 40 20% 82%;
+    --ring: 45 90% 50%;
+
+    --radius: 1rem;
+    
+    /* Advanced gradients - Light Mode */
+    --gradient-hero: linear-gradient(135deg, hsl(45 90% 50%) 0%, hsl(40 85% 55%) 50%, hsl(35 80% 60%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(40 25% 96%) 0%, hsl(40 30% 92%) 100%);
+    --gradient-premium: linear-gradient(120deg, hsl(45 90% 50%) 0%, hsl(40 85% 55%) 100%);
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(45 90% 50% / 0.2), transparent 70%);
+    
+    /* Advanced shadows - Light Mode */
+    --shadow-card: 0 4px 20px -2px hsl(45 90% 50% / 0.15);
+    --shadow-elevated: 0 10px 40px -10px hsl(45 90% 50% / 0.25);
+    --shadow-glow: 0 0 60px hsl(45 90% 50% / 0.4);
+    --shadow-inner: inset 0 2px 8px hsl(0 0% 0% / 0.08);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Glassmorphism - Light Mode (Apple-style) */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(212, 175, 55, 0.2);
+    --glass-blur: blur(40px);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --glass-highlight: rgba(255, 255, 255, 0.8);
+
+    --sidebar-background: 40 25% 92%;
+    --sidebar-foreground: 30 15% 20%;
+    --sidebar-primary: 45 90% 50%;
+    --sidebar-primary-foreground: 30 15% 15%;
+    --sidebar-accent: 40 30% 88%;
+    --sidebar-accent-foreground: 30 15% 20%;
+    --sidebar-border: 40 20% 82%;
+    --sidebar-ring: 45 90% 50%;
+  }
+
+  .dark {
+    /* Dark Mode - Dark Black & Golden */
+    --background: 0 0% 8%;
+    --foreground: 45 80% 85%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 45 80% 85%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 45 80% 85%;
+
+    --primary: 45 90% 55%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 45 80% 85%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 45 20% 60%;
+
+    --accent: 45 85% 60%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 45 90% 55%;
+    
+    /* Advanced gradients - Dark Mode */
+    --gradient-hero: linear-gradient(135deg, hsl(45 90% 55%) 0%, hsl(40 85% 50%) 50%, hsl(35 80% 45%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 12%) 0%, hsl(0 0% 15%) 100%);
+    --gradient-premium: linear-gradient(120deg, hsl(45 90% 55%) 0%, hsl(40 85% 50%) 100%);
+    --gradient-glow: radial-gradient(circle at 50% 50%, hsl(45 90% 50% / 0.3), transparent 70%);
+    
+    /* Advanced shadows - Dark Mode */
+    --shadow-card: 0 4px 20px -2px hsl(45 90% 50% / 0.3);
+    --shadow-elevated: 0 10px 40px -10px hsl(45 90% 50% / 0.4);
+    --shadow-glow: 0 0 60px hsl(45 90% 50% / 0.6);
+    --shadow-inner: inset 0 2px 8px hsl(0 0% 0% / 0.5);
+    
+    /* Glassmorphism - Dark Mode (Apple-style) */
+    --glass-bg: rgba(20, 20, 20, 0.7);
+    --glass-border: rgba(212, 175, 55, 0.15);
+    --glass-blur: blur(40px);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --glass-highlight: rgba(255, 255, 255, 0.05);
+    
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 45 80% 85%;
+    --sidebar-primary: 45 90% 55%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: 45 80% 85%;
+    --sidebar-border: 0 0% 22%;
+    --sidebar-ring: 45 90% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  /* Apple-style Glass Effects */
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    position: relative;
+  }
+  
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--glass-highlight);
+  }
+  
+  /* Smooth Scrolling */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Text Rendering */
+  .text-render-optimized {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
